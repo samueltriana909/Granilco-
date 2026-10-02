@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Menú de Graniloco</title>
+
+    <link rel="stylesheet" href="CSS Menu.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+</head>
+
+<body class="pagina-menu">
+
+<!-- =====================================================
+     BARRA DE NAVEGACIÓN
+===================================================== -->
+
+<header class="barra" id="barra">
+
+    <div class="marca">
+        <img src="logo circular.jpeg" alt="Logo Graniloco">
+        <h2>GRANILOCO</h2>
+    </div>
+
+    <nav class="nav">
+
+        <a href="index.html">Inicio</a>
+
+        <a href="HTML Menu.html">Menú</a>
+
+        <a href="menu personalizado.html">Personalizar</a>
+
+        <a href="menu diabetico.html">Diabéticos</a>
+
+        <!-- CARRITO -->
+        <button
+            class="cart-button"
+            type="button"
+            onclick="abrirCarrito()"
+            aria-label="Abrir carrito">
+
+            <span
+                class="cart-count"
+                id="contadorCarrito">
+                0
+            </span>
+
+        </button>
+
+    </nav>
+
+</header>
+
+
+<!-- =====================================================
+     CARRITO
+===================================================== -->
+
+<div
+    class="cart-overlay"
+    id="cartOverlay"
+    onclick="cerrarCarrito()">
+</div>
+
+
+<aside
+    class="cart-panel"
+    id="cartPanel">
+
+    <div class="cart-header">
+
+        <h2>🛒 Tu carrito</h2>
+
+        <button
+            type="button"
+            class="cart-close"
+            onclick="cerrarCarrito()">
+
+            ✕
+
+        </button>
+
+    </div>
+
+
+    <div
+        class="cart-drop-zone"
+        id="cartDropZone">
+
+        🧊 Arrastra aquí tus productos
+
+    </div>
+
+
+    <div
+        class="cart-items"
+        id="cartItems">
+
+        <div class="cart-empty">
+
+            🧊 Tu carrito está vacío.
+
+            <br><br>
+
+            Agrega tus granizados favoritos.
+
+        </div>
+
+    </div>
+
+
+    <div class="cart-footer">
+
+        <div class="cart-total">
+
+            <span>Total:</span>
+
+            <strong id="cartTotal">
+                $0
+            </strong>
+
+        </div>
+
+
+        <div class="cart-actions">
+
+            <button
+                type="button"
+                class="whatsapp-btn"
+                onclick="enviarPedidoWhatsApp()">
+
+                📲 Pedir por WhatsApp
+
+            </button>
+
+
+            <button
+                type="button"
+                class="clear-cart"
+                onclick="vaciarCarrito()">
+
+                🗑️ Vaciar
+
+            </button>
+
+        </div>
+
+    </div>
+
+</aside>
+
+
+
+<!-- =====================================================
+     MENÚ
+===================================================== -->
+
+<section
+    class="menu"
+    id="menu">
+
+    <h2 class="section-title">
+        Nuestro Menú
+    </h2>
+
+    <p class="section-text">
+        Elige tu granizado favorito y agrégalo al carrito.
+    </p>
+
+
+    <div class="cards">
+
+
+        <!-- ================= FRESA ================= -->
+
+        <div
+            class="card producto"
+            draggable="true"
+            ondragstart="arrastrarProducto(event)"
+            ondragend="terminarArrastre(event)"
+            data-producto="Granizado Fresa"
+            data-precio="5990">
+
+            <div class="img-space">
+
+                <img
+                    src="granizado de freza.jpeg"
+                    alt="Granizado de fresa">
+
+            </div>
+
+
+            <div class="card-content">
+
+                <h3>
+                    Granizado Fresa
+                </h3>
+
+                <p>
+                    Granizado refrescante sabor fresa.
+                </p>
+
+                <div class="price">
+                    $5.990
+                </div>
+
+
+                <button
+                    class="btn-agregar"
+                    type="button"
+                    onclick="agregarDesdeBoton(this)">
+
+                    🛒 Agregar al carrito
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= MORA ================= -->
+
+        <div
+            class="card producto"
+            draggable="true"
+            ondragstart="arrastrarProducto(event)"
+            ondragend="terminarArrastre(event)"
+            data-producto="Granizado de mora"
+            data-precio="6990">
+
+            <div class="img-space">
+
+                <img
+                    src="granizado de mora.jpeg"
+                    alt="Granizado de mora">
+
+            </div>
+
+
+            <div class="card-content">
+
+                <h3>
+                    Granizado de mora
+                </h3>
+
+                <p>
+                    Sabor intenso y súper frío.
+                </p>
+
+                <div class="price">
+                    $6.990
+                </div>
+
+
+                <button
+                    class="btn-agregar"
+                    type="button"
+                    onclick="agregarDesdeBoton(this)">
+
+                    🛒 Agregar al carrito
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= MANGO ================= -->
+
+        <div
+            class="card producto"
+            draggable="true"
+            ondragstart="arrastrarProducto(event)"
+            ondragend="terminarArrastre(event)"
+            data-producto="Granizado De Mango"
+            data-precio="5990">
+
+            <div class="img-space">
+
+                <img
+                    src="granizado de mango.jpeg"
+                    alt="Granizado de mango">
+
+            </div>
+
+
+            <div class="card-content">
+
+                <h3>
+                    Granizado De Mango
+                </h3>
+
+                <p>
+                    Sabor dulce y súper refrescante.
+                </p>
+
+                <div class="price">
+                    $5.990
+                </div>
+
+
+                <button
+                    class="btn-agregar"
+                    type="button"
+                    onclick="agregarDesdeBoton(this)">
+
+                    🛒 Agregar al carrito
+
+                </button>
+
+            </div>
+
+        </div>
+        
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     QR
+===================================================== -->
+
+<section class="qr-section">
+
+    <h2 class="section-title">
+        Escanea el QR
+    </h2>
+
+    <p class="section-text">
+        Escanea el código y entra al menú desde cualquier celular.
+    </p>
+
+
+    <div class="qr-box">
+
+        <img
+            src="qr_web_final.png"
+            alt="Código QR de Graniloco">
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <h3>
+        Graniloco
+    </h3>
+
+
+    <div class="redes-sociales">
+
+        <a
+            href="https://www.instagram.com/graniloco3"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            Instagram
+
+        </a>
+
+
+        <a
+            href="https://www.tiktok.com/@graniloco0"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            TikTok
+
+        </a>
+
+
+        <a
+            href="https://wa.me/573215240043"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            WhatsApp
+
+        </a>
+
+    </div>
+
+
+    <p>
+        © 2026 Graniloco - Todos los derechos reservados
+    </p>
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT DEL CARRITO
+===================================================== -->
+
+<script>
+
+const NUMERO_WHATSAPP = "573215240043";
+
+
+let carrito =
+    JSON.parse(
+        localStorage.getItem("granilocoCarrito") || "[]"
+    );
+
+
+
+/* =====================================================
+   GUARDAR CARRITO
+===================================================== */
+
+function guardarCarrito(){
+
+    localStorage.setItem(
+        "granilocoCarrito",
+        JSON.stringify(carrito)
+    );
+
+}
+
+
+
+/* =====================================================
+   FORMATO DE PRECIO
+===================================================== */
+
+function formatoPrecio(valor){
+
+    return "$" +
+        Number(valor).toLocaleString("es-CO");
+
+}
+
+
+
+/* =====================================================
+   ABRIR CARRITO
+===================================================== */
+
+function abrirCarrito(){
+
+    document
+        .getElementById("cartPanel")
+        .classList.add("open");
+
+    document
+        .getElementById("cartOverlay")
+        .classList.add("open");
+
+}
+
+
+
+/* =====================================================
+   CERRAR CARRITO
+===================================================== */
+
+function cerrarCarrito(){
+
+    document
+        .getElementById("cartPanel")
+        .classList.remove("open");
+
+    document
+        .getElementById("cartOverlay")
+        .classList.remove("open");
+
+}
+
+
+
+/* =====================================================
+   AGREGAR PRODUCTO
+===================================================== */
+
+function agregarProducto(
+    nombre,
+    precio
+){
+
+    const productoExistente =
+        carrito.find(
+            producto =>
+                producto.nombre === nombre
+        );
+
+
+    if(productoExistente){
+
+        productoExistente.cantidad++;
+
+    }
+
+    else{
+
+        carrito.push({
+
+            nombre: nombre,
+
+            precio: Number(precio),
+
+            cantidad: 1
+
+        });
+
+    }
+
+
+    guardarCarrito();
+
+    actualizarCarrito();
+
+    abrirCarrito();
+
+}
+
+
+
+/* =====================================================
+   BOTÓN AGREGAR
+===================================================== */
+
+function agregarDesdeBoton(boton){
+
+    const producto =
+        boton.closest(".producto");
+
+
+    agregarProducto(
+
+        producto.dataset.producto,
+
+        producto.dataset.precio
+
+    );
+
+}
+
+
+
+/* =====================================================
+   ARRASTRAR PRODUCTO
+===================================================== */
+
+function arrastrarProducto(event){
+
+    const producto =
+        event.currentTarget;
+
+
+    event.dataTransfer.setData(
+        "nombre",
+        producto.dataset.producto
+    );
+
+
+    event.dataTransfer.setData(
+        "precio",
+        producto.dataset.precio
+    );
+
+
+    event.dataTransfer.effectAllowed =
+        "copy";
+
+
+    document
+        .getElementById("cartDropZone")
+        .classList.add("drag-over");
+
+}
+
+
+
+/* =====================================================
+   TERMINAR ARRASTRE
+===================================================== */
+
+function terminarArrastre(){
+
+    document
+        .getElementById("cartDropZone")
+        .classList.remove("drag-over");
+
+}
+
+
+
+/* =====================================================
+   ZONA DE ARRASTRE
+===================================================== */
+
+const zonaCarrito =
+    document.getElementById("cartDropZone");
+
+
+zonaCarrito.addEventListener(
+    "dragover",
+    function(event){
+
+        event.preventDefault();
+
+        zonaCarrito.classList.add(
+            "drag-over"
+        );
+
+    }
+);
+
+
+zonaCarrito.addEventListener(
+    "dragleave",
+    function(){
+
+        zonaCarrito.classList.remove(
+            "drag-over"
+        );
+
+    }
+);
+
+
+zonaCarrito.addEventListener(
+    "drop",
+    function(event){
+
+        event.preventDefault();
+
+
+        zonaCarrito.classList.remove(
+            "drag-over"
+        );
+
+
+        const nombre =
+            event.dataTransfer.getData(
+                "nombre"
+            );
+
+
+        const precio =
+            event.dataTransfer.getData(
+                "precio"
+            );
+
+
+        if(
+            nombre &&
+            precio
+        ){
+
+            agregarProducto(
+                nombre,
+                precio
+            );
+
+        }
+
+    }
+);
+
+
+
+/* =====================================================
+   ACTUALIZAR CARRITO
+===================================================== */
+
+function actualizarCarrito(){
+
+    const contenedor =
+        document.getElementById(
+            "cartItems"
+        );
+
+
+    const contador =
+        document.getElementById(
+            "contadorCarrito"
+        );
+
+
+    const totalElemento =
+        document.getElementById(
+            "cartTotal"
+        );
+
+
+    contenedor.innerHTML = "";
+
+
+    let total = 0;
+
+    let cantidadTotal = 0;
+
+
+
+    /* CARRITO VACÍO */
+
+    if(carrito.length === 0){
+
+        contenedor.innerHTML = `
+
+            <div class="cart-empty">
+
+                🧊 Tu carrito está vacío.
+
+                <br><br>
+
+                Agrega tus granizados favoritos.
+
+            </div>
+
+        `;
+
+    }
+
+
+
+    /* PRODUCTOS */
+
+    carrito.forEach(
+        function(producto,index){
+
+            const subtotal =
+                producto.precio *
+                producto.cantidad;
+
+
+            total += subtotal;
+
+
+            cantidadTotal +=
+                producto.cantidad;
+
+
+
+            const elemento =
+                document.createElement(
+                    "div"
+                );
+
+
+            elemento.className =
+                "cart-item";
+
+
+            elemento.innerHTML = `
+
+                <div>
+
+                    <div class="cart-item-name">
+
+                        ${producto.nombre}
+
+                    </div>
+
+
+                    <div class="cart-item-price">
+
+                        ${formatoPrecio(
+                            subtotal
+                        )}
+
+                    </div>
+
+
+                    <div class="cart-item-controls">
+
+                        <button
+                            type="button"
+                            onclick="cambiarCantidad(
+                                ${index},
+                                -1
+                            )">
+
+                            −
+
+                        </button>
+
+
+                        <span class="cart-qty">
+
+                            ${producto.cantidad}
+
+                        </span>
+
+
+                        <button
+                            type="button"
+                            onclick="cambiarCantidad(
+                                ${index},
+                                1
+                            )">
+
+                            +
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="cart-remove"
+                            onclick="eliminarProducto(
+                                ${index}
+                            )">
+
+                            🗑️
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            `;
+
+
+            contenedor.appendChild(
+                elemento
+            );
+
+        }
+    );
+
+
+
+    contador.textContent =
+        cantidadTotal;
+
+
+    totalElemento.textContent =
+        formatoPrecio(total);
+
+}
+
+
+
+/* =====================================================
+   CAMBIAR CANTIDAD
+===================================================== */
+
+function cambiarCantidad(
+    index,
+    cambio
+){
+
+    carrito[index].cantidad +=
+        cambio;
+
+
+    if(
+        carrito[index].cantidad <= 0
+    ){
+
+        carrito.splice(
+            index,
+            1
+        );
+
+    }
+
+
+    guardarCarrito();
+
+    actualizarCarrito();
+
+}
+
+
+
+/* =====================================================
+   ELIMINAR PRODUCTO
+===================================================== */
+
+function eliminarProducto(index){
+
+    carrito.splice(
+        index,
+        1
+    );
+
+
+    guardarCarrito();
+
+    actualizarCarrito();
+
+}
+
+
+
+/* =====================================================
+   VACIAR CARRITO
+===================================================== */
+
+function vaciarCarrito(){
+
+    carrito = [];
+
+
+    guardarCarrito();
+
+    actualizarCarrito();
+
+}
+
+
+
+/* =====================================================
+   PEDIDO POR WHATSAPP
+===================================================== */
+
+function enviarPedidoWhatsApp(){
+
+    if(
+        carrito.length === 0
+    ){
+
+        alert(
+            "Tu carrito está vacío."
+        );
+
+        return;
+
+    }
+
+
+    let mensaje =
+        "🧊 *PEDIDO GRANILOCO*%0A%0A";
+
+
+    let total = 0;
+
+
+
+    carrito.forEach(
+        function(producto){
+
+            const subtotal =
+                producto.precio *
+                producto.cantidad;
+
+
+            total += subtotal;
+
+
+            mensaje +=
+
+                "• " +
+                producto.cantidad +
+                "x " +
+                producto.nombre +
+                " — " +
+                formatoPrecio(
+                    subtotal
+                ) +
+                "%0A";
+
+        }
+    );
+
+
+    mensaje +=
+
+        "%0A💰 *TOTAL: " +
+        formatoPrecio(total) +
+        "*";
+
+
+    mensaje +=
+
+        "%0A%0AHola Graniloco, " +
+        "quiero realizar este pedido.";
+
+
+
+    const url =
+
+        "https://wa.me/" +
+        NUMERO_WHATSAPP +
+        "?text=" +
+        mensaje;
+
+
+    window.open(
+        url,
+        "_blank"
+    );
+
+}
+
+
+
+/* =====================================================
+   CARGAR CARRITO AL ABRIR
+===================================================== */
+
+actualizarCarrito();
+
+</script>
+
+</body>
+</html>

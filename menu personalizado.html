@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Personalizado - Graniloco</title>
+    <link rel="stylesheet" href="CSS Menu.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+</head>
+<body class="pagina-menu">
+<header class="barra" id="barra">
+    <div class="marca">
+        <img src="logo circular.jpeg" alt="Logo Graniloco">
+        <h2>GRANILOCO</h2>
+    </div>
+    <nav class="nav">
+        <a href="index.html">Inicio</a>
+        <a href="HTML Menu.html">Menú</a>
+        <a href="menu personalizado.html">Personalizar</a>
+        <a href="menu diabetico.html">Diabéticos</a>
+    
+        <button class="cart-button" type="button"
+                onclick="abrirCarrito()" aria-label="Abrir carrito">
+            <span class="cart-count" id="contadorCarrito">0</span>
+        </button>
+
+    </nav>
+</header>
+
+
+<!-- CARRITO COMPARTIDO GRANILOCO -->
+<div class="cart-overlay" id="cartOverlay" onclick="cerrarCarrito()"></div>
+
+<aside class="cart-panel" id="cartPanel">
+    <div class="cart-header">
+        <h2>🛒 Tu carrito</h2>
+        <button type="button" class="cart-close" onclick="cerrarCarrito()">✕</button>
+    </div>
+
+    <div class="cart-drop-zone" id="cartDropZone">
+        🧊 Arrastra aquí tus productos
+    </div>
+
+    <div class="cart-items" id="cartItems">
+        <div class="cart-empty">
+            🧊 Tu carrito está vacío.<br><br>
+            Agrega tus granizados favoritos.
+        </div>
+    </div>
+
+    <div class="cart-footer">
+        <div class="cart-total">
+            <span>Total:</span>
+            <strong id="cartTotal">$0</strong>
+        </div>
+
+        <div class="cart-actions">
+            <button type="button" class="whatsapp-btn" onclick="enviarPedidoWhatsApp()">
+                📲 Pedir por WhatsApp
+            </button>
+            <button type="button" class="clear-cart" onclick="vaciarCarrito()">
+                🗑️ Vaciar
+            </button>
+        </div>
+    </div>
+</aside>
+
+<section id="personalizar">
+    <h2 class="section-title">🍧 Personaliza tu Granizado</h2>
+    <div class="personalizar-box">
+        <h3>Crea tu combinación favorita</h3>
+
+        <label for="saborPersonalizado">Sabor:</label>
+        <select id="saborPersonalizado">
+            <option>Fresa</option>
+            <option>Mango</option>
+            <option>Mora</option>
+            
+        </select>
+
+        <label for="tamanoPersonalizado">Tamaño y precio:</label>
+        <select id="tamanoPersonalizado" onchange="actualizarPrecioPersonalizado()">
+            <option value="10000">Pequeño 12 oz — $10.000</option>
+            <option value="11500">Mediano 16 oz — $11.500</option>
+            <option value="13000">Grande 22 oz — $13.000</option>
+        </select>
+
+        <div class="precio-seleccionado">
+            Precio base: <strong id="precioPersonalizado">$10.000</strong>
+        </div>
+        <div class="precio-topping" id="precioToppingPersonalizado">
+            Extra: $800 por topping
+        </div>
+
+        <label>Extras:</label>
+        <div class="extras">
+            <label><input type="checkbox" value="Gomitas"> Gomitas</label>
+            <label><input type="checkbox" value="Leche condensada"> Leche condensada</label>
+            <label><input type="checkbox" value="Chispas de colores"> Chispas de colores</label>
+            <label><input type="checkbox" value="Crema chantilly"> Crema chantilly</label>
+        </div>
+
+        <p class="nota-personalizar">🔥 ¡Combina sabores y crea tu granizado perfecto!</p>
+        <p class="nota-precios">Precios de venta: Pequeño $10.000, Mediano $11.500 y Grande $13.000. Cada topping tiene un precio según el tamaño: $800, $910 o $1.040.</p>
+        <button class="btn-agregar btn-agregar-personalizado" type="button" onclick="agregarPersonalizado()">🛒 Agregar al carrito</button>
+    </div>
+</section>
+
+<footer>
+    <h3>Graniloco</h3>
+    <div class="redes-sociales">
+        <a href="https://www.instagram.com/graniloco3" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.tiktok.com/@graniloco0" target="_blank" rel="noopener noreferrer">TikTok</a>
+        <a href="https://wa.me/573215240043" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    </div>
+    <p>© 2026 Graniloco - Todos los derechos reservados</p>
+</footer>
+
+<script>
+const NUMERO_WHATSAPP = "573215240043";
+let carrito = JSON.parse(localStorage.getItem("granilocoCarrito") || "[]");
+
+function guardarCarrito(){
+    localStorage.setItem("granilocoCarrito", JSON.stringify(carrito));
+}
+
+function formatoPrecio(valor){
+    return "$" + Number(valor).toLocaleString("es-CO");
+}
+
+function abrirCarrito(){
+    document.getElementById("cartPanel").classList.add("open");
+    document.getElementById("cartOverlay").classList.add("active");
+}
+
+function cerrarCarrito(){
+    document.getElementById("cartPanel").classList.remove("open");
+    document.getElementById("cartOverlay").classList.remove("active");
+}
+
+function agregarProducto(nombre, precio){
+    const existente = carrito.find(p => p.nombre === nombre);
+
+    if(existente){
+        existente.cantidad++;
+    }else{
+        carrito.push({
+            nombre,
+            precio:Number(precio),
+            cantidad:1
+        });
+    }
+
+    guardarCarrito();
+    actualizarCarrito();
+    abrirCarrito();
+}
+
+const PRECIOS_TAMAÑO = {
+    "10000": { base: 10000, extra: 800 },
+    "11500": { base: 11500, extra: 910 },
+    "13000": { base: 13000, extra: 1040 }
+};
+
+function actualizarPrecioPersonalizado(){
+    const select = document.getElementById("tamanoPersonalizado");
+    const precio = document.getElementById("precioPersonalizado");
+    const extra = document.getElementById("precioToppingPersonalizado");
+
+    if(!select || !precio) return;
+
+    const datos = PRECIOS_TAMAÑO[select.value];
+    precio.textContent = formatoPrecio(datos.base);
+
+    if(extra){
+        extra.textContent = `${formatoPrecio(datos.extra)} por cada topping seleccionado`;
+    }
+}
+
+function actualizarPrecioDiabetico(){
+    const select = document.getElementById("tamanoDiabetico");
+    const precio = document.getElementById("precioDiabetico");
+    const extra = document.getElementById("precioToppingDiabetico");
+
+    if(!select || !precio) return;
+
+    const datos = PRECIOS_TAMAÑO[select.value];
+    precio.textContent = formatoPrecio(datos.base);
+
+    if(extra){
+        extra.textContent = `${formatoPrecio(datos.extra)} por cada extra seleccionado`;
+    }
+}
+
+function agregarPersonalizado(){
+    const sabor = document.getElementById("saborPersonalizado").value;
+    const tamano = document.getElementById("tamanoPersonalizado");
+    const datos = PRECIOS_TAMAÑO[tamano.value];
+
+    const extras = [...document.querySelectorAll(".extras input:checked")]
+        .map(x => x.value);
+
+    const total = datos.base + (extras.length * datos.extra);
+    const nombreTamaño = tamano.options[tamano.selectedIndex].text.split(" — ")[0];
+
+    let nombre = `Granizado personalizado — ${sabor} — ${nombreTamaño}`;
+
+    if(extras.length){
+        nombre += ` — Extras: ${extras.join(", ")}`;
+    }
+
+    agregarProducto(nombre, total);
+}
+
+function agregarDiabetico(){
+    const sabor = document.getElementById("saborDiabetico").value;
+    const endulzante = document.getElementById("endulzanteDiabetico").value;
+    const tamano = document.getElementById("tamanoDiabetico");
+    const datos = PRECIOS_TAMAÑO[tamano.value];
+
+    const extras = [...document.querySelectorAll(".extras-diabeticos input:checked")]
+        .map(x => x.value);
+
+    const total = datos.base + (extras.length * datos.extra);
+    const nombreTamaño = tamano.options[tamano.selectedIndex].text.split(" — ")[0];
+
+    let nombre = `Granizado diabético — ${sabor} — ${endulzante} — ${nombreTamaño}`;
+
+    if(extras.length){
+        nombre += ` — Extras: ${extras.join(", ")}`;
+    }
+
+    agregarProducto(nombre, total);
+}
+
+function cambiarCantidad(index, cambio){
+    carrito[index].cantidad += cambio;
+
+    if(carrito[index].cantidad <= 0){
+        carrito.splice(index, 1);
+    }
+
+    guardarCarrito();
+    actualizarCarrito();
+}
+
+function eliminarProducto(index){
+    carrito.splice(index, 1);
+    guardarCarrito();
+    actualizarCarrito();
+}
+
+function vaciarCarrito(){
+    carrito = [];
+    guardarCarrito();
+    actualizarCarrito();
+}
+
+function actualizarCarrito(){
+    const contenedor = document.getElementById("cartItems");
+    const contador = document.getElementById("contadorCarrito");
+    const totalElemento = document.getElementById("cartTotal");
+
+    contenedor.innerHTML = "";
+
+    let total = 0;
+    let cantidadTotal = 0;
+
+    if(carrito.length === 0){
+        contenedor.innerHTML = `
+            <div class="cart-empty">
+                🧊 Tu carrito está vacío.<br><br>
+                Agrega tus granizados favoritos.
+            </div>
+        `;
+    }
+
+    carrito.forEach((producto, index) => {
+        const subtotal = producto.precio * producto.cantidad;
+        total += subtotal;
+        cantidadTotal += producto.cantidad;
+
+        const elemento = document.createElement("div");
+        elemento.className = "cart-item";
+
+        elemento.innerHTML = `
+            <div class="cart-item-name">${producto.nombre}</div>
+            <div class="cart-item-price">${formatoPrecio(subtotal)}</div>
+
+            <div class="cart-item-controls">
+                <button type="button" onclick="cambiarCantidad(${index},-1)">−</button>
+                <span class="cart-qty">${producto.cantidad}</span>
+                <button type="button" onclick="cambiarCantidad(${index},1)">+</button>
+                <button type="button" class="cart-remove"
+                        onclick="eliminarProducto(${index})">🗑️</button>
+            </div>
+        `;
+
+        contenedor.appendChild(elemento);
+    });
+
+    contador.textContent = cantidadTotal;
+    totalElemento.textContent = formatoPrecio(total);
+}
+
+function enviarPedidoWhatsApp(){
+    if(!carrito.length){
+        alert("Tu carrito está vacío.");
+        return;
+    }
+
+    let mensaje = "🧊 *PEDIDO GRANILOCO*%0A%0A";
+    let total = 0;
+
+    carrito.forEach(producto => {
+        const subtotal = producto.precio * producto.cantidad;
+        total += subtotal;
+
+        mensaje += `• ${producto.cantidad}x ${producto.nombre} — ${formatoPrecio(subtotal)}%0A`;
+    });
+
+    mensaje += `%0A💰 *TOTAL: ${formatoPrecio(total)}*`;
+    mensaje += `%0A%0AHola Graniloco, quiero realizar este pedido.`;
+
+    window.open(
+        `https://wa.me/${NUMERO_WHATSAPP}?text=${mensaje}`,
+        "_blank"
+    );
+}
+
+function prepararZonaArrastre(){
+    const zona = document.getElementById("cartDropZone");
+
+    zona.addEventListener("dragover", event => {
+        event.preventDefault();
+        zona.classList.add("drag-over");
+    });
+
+    zona.addEventListener("dragleave", () => {
+        zona.classList.remove("drag-over");
+    });
+
+    zona.addEventListener("drop", event => {
+        event.preventDefault();
+        zona.classList.remove("drag-over");
+
+        const nombre = event.dataTransfer.getData("nombre");
+        const precio = event.dataTransfer.getData("precio");
+
+        if(nombre && precio){
+            agregarProducto(nombre, precio);
+        }
+    });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    actualizarCarrito();
+    actualizarPrecioPersonalizado();
+    actualizarPrecioDiabetico();
+    prepararZonaArrastre();
+});
+</script>
+</body>
+</html>

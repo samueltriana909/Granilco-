@@ -1,0 +1,1927 @@
+/* ===== CONFIGURACIÓN GENERAL ===== */
+*{
+    font-family:"Permanent Marker", cursive;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    color:white;
+    background:linear-gradient(135deg,#050505,#111827,#3b0000);
+    overflow-x:hidden;
+}
+
+/* Luces decorativas */
+body::before{
+    content:"";
+    position:fixed;
+    width:450px;
+    height:450px;
+    background:rgba(0,140,255,.15);
+    border-radius:50%;
+    top:-200px;
+    left:-150px;
+    filter:blur(120px);
+    z-index:-1;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    width:450px;
+    height:450px;
+    background:rgba(255,0,128,.15);
+    border-radius:50%;
+    bottom:-200px;
+    right:-150px;
+    filter:blur(120px);
+    z-index:-1;
+}
+
+/* ===== MENÚ ===== */
+
+.menu{
+    padding:80px 20px;
+}
+
+.section-title{
+    text-align:center;
+    font-size:3rem;
+    color:#ff66b3;
+    margin-bottom:20px;
+}
+
+.section-text{
+    text-align:center;
+    color:white;
+    margin-bottom:40px;
+}
+
+.cards{
+    max-width:1300px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
+}
+
+/* ===== PRODUCTOS ===== */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:30px;
+    max-width:1200px;
+    margin:auto;
+}
+.card{
+    background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:25px;
+    overflow:hidden;
+    backdrop-filter:blur(15px);
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-12px);
+    box-shadow:0 0 30px rgba(255,0,128,.3);
+}
+
+.img-space{
+    height:260px;
+    background:linear-gradient(135deg,#1f2937,#111827);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#9ca3af;
+    font-size:1.2rem;
+    font-weight:600;
+}
+.img-space img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+.card-content{
+    padding:25px;
+    text-align:center;
+}
+
+.card-content h3{
+    margin-bottom:10px;
+    font-size:1.8rem;
+}
+
+.card-content p{
+    color:#d1d5db;
+}
+
+.price{
+    margin-top:20px;
+    font-size:2rem;
+    font-weight:800;
+    color:#FFD700;
+}
+
+/* ===== QR ===== */
+
+.qr-section{
+    text-align:center;
+    padding:80px 20px;
+}
+
+.qr-box{
+    display:inline-block;
+    background:white;
+    padding:20px;
+    border-radius:25px;
+    margin-top:20px;
+}
+
+.qr-box img{
+    width:220px;
+}
+
+.qr-text{
+    margin-top:15px;
+    color:#cbd5e1;
+}
+/* ===== CUADRO PERSONALIZADO ===== */
+.personalizar-box{
+    position:relative;
+    isolation:isolate;
+    max-width:720px;
+    margin:40px auto;
+    padding:32px;
+    border-radius:28px;
+    background:
+        linear-gradient(rgba(15,10,35,.94),rgba(20,8,30,.92)) padding-box,
+        linear-gradient(120deg,#ff0080,#8000ff,#00ffff,#ff0080) border-box;
+    border:3px solid transparent;
+    backdrop-filter:blur(18px);
+    box-shadow:0 0 12px #ff0080,0 0 28px rgba(128,0,255,.7),inset 0 0 25px rgba(0,255,255,.08);
+    overflow:hidden;
+}
+.personalizar-box::before{
+    content:"";
+    position:absolute;
+    inset:-45%;
+    z-index:-1;
+    background:conic-gradient(from 0deg,transparent 0 20%,#ff0080 25%,#8000ff 35%,#00ffff 45%,transparent 55% 100%);
+    animation:girarBorde 6s linear infinite;
+    opacity:.28;
+}
+.personalizar-box::after{
+    content:"";
+    position:absolute;
+    inset:2px;
+    z-index:-1;
+    border-radius:25px;
+    background:linear-gradient(145deg,rgba(20,10,40,.98),rgba(8,10,28,.96));
+}
+.personalizar-box h3{
+    position:relative;
+    z-index:1;
+    font-family:"Permanent Marker",cursive;
+    color:#fff;
+    text-align:center;
+    margin-bottom:24px;
+    text-shadow:2px 2px 0 #8000ff,-2px -2px 0 #ff0080,0 0 8px #00ffff,0 0 18px #8000ff;
+}
+.personalizar-box label{
+    display:block;
+    margin-top:15px;
+    margin-bottom:8px;
+    font-family:"Permanent Marker",cursive;
+    color:#fff;
+    text-shadow:1px 1px 0 #8000ff,0 0 6px #ff0080;
+}
+.personalizar-box select{
+    width:100%;
+    padding:13px 14px;
+    border:2px solid rgba(0,255,255,.35);
+    border-radius:13px;
+    font-family:Arial,sans-serif;
+    font-size:1rem;
+    margin-bottom:10px;
+    background:#fff;
+    color:#111;
+    outline:none;
+    box-shadow:0 0 10px rgba(0,255,255,.15);
+}
+.personalizar-box select:focus{
+    border-color:#ff0080;
+    box-shadow:0 0 15px rgba(255,0,128,.5);
+}
+.personalizar-box .extras{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:11px;
+    margin-top:15px;
+}
+.personalizar-box .extras label{
+    margin:0;
+    display:flex;
+    align-items:center;
+    gap:9px;
+    min-height:48px;
+    padding:11px;
+    border:1px solid rgba(0,255,255,.18);
+    border-radius:12px;
+    background:rgba(255,255,255,.07);
+    transition:.25s;
+    text-shadow:none;
+}
+.personalizar-box .extras label:hover{
+    transform:translateY(-3px);
+    border-color:#ff0080;
+    background:rgba(255,0,128,.14);
+    box-shadow:0 0 12px rgba(255,0,128,.35);
+}
+.personalizar-box .extras input{
+    width:18px;
+    height:18px;
+    accent-color:#ff0080;
+}
+.precio-seleccionado,.precio-topping{
+    text-align:center;
+    margin:10px 0 15px;
+    color:#fff;
+    text-shadow:0 0 8px #00ffff;
+}
+.precio-topping{
+    font-family:Arial,sans-serif;
+    font-size:.95rem;
+}
+.btn-agregar-personalizado{
+    width:100%;
+    margin-top:22px;
+    padding:14px;
+    border:0;
+    border-radius:14px;
+    color:#fff;
+    background:linear-gradient(90deg,#ff0080,#8000ff,#00ffff,#ff0080);
+    background-size:300% 100%;
+    animation:brilloBoton 4s linear infinite;
+    font-family:"Permanent Marker",cursive;
+    font-size:1rem;
+    cursor:pointer;
+    box-shadow:0 0 12px #ff0080,0 0 24px rgba(0,255,255,.35);
+    transition:.25s;
+}
+.btn-agregar-personalizado:hover{
+    transform:translateY(-3px) scale(1.01);
+    box-shadow:0 0 20px #ff0080,0 0 35px #00ffff;
+}
+@keyframes girarBorde{to{transform:rotate(360deg)}}
+@keyframes brilloBoton{to{background-position:300% 0}}
+
+
+/* ===== CUADRO DIABÉTICOS ===== */
+.diabeticos{
+    position:relative;
+    isolation:isolate;
+    max-width:720px;
+    margin:40px auto;
+    padding:32px;
+    border-radius:28px;
+    background:
+        linear-gradient(rgba(7,30,25,.94),rgba(8,15,28,.94)) padding-box,
+        linear-gradient(120deg,#00ff88,#00ffff,#8000ff,#00ff88) border-box;
+    border:3px solid transparent;
+    backdrop-filter:blur(18px);
+    box-shadow:0 0 12px #00ff88,0 0 28px rgba(0,255,255,.35),inset 0 0 25px rgba(0,255,136,.08);
+    overflow:hidden;
+}
+.diabeticos::before{
+    content:"";
+    position:absolute;
+    inset:-45%;
+    z-index:-1;
+    background:conic-gradient(from 0deg,transparent 0 20%,#00ff88 28%,#00ffff 38%,#8000ff 48%,transparent 58% 100%);
+    animation:girarBordeDiabetico 7s linear infinite;
+    opacity:.27;
+}
+.diabeticos::after{
+    content:"";
+    position:absolute;
+    inset:2px;
+    z-index:-1;
+    border-radius:25px;
+    background:linear-gradient(145deg,rgba(7,35,28,.98),rgba(8,14,30,.97));
+}
+.diabeticos h3{
+    position:relative;
+    z-index:1;
+    font-family:"Permanent Marker",cursive;
+    color:#fff;
+    text-align:center;
+    margin-bottom:24px;
+    text-shadow:2px 2px 0 #8000ff,-2px -2px 0 #00aa77,0 0 8px #00ffff,0 0 18px #00ff88;
+}
+.diabeticos label{
+    display:block;
+    margin-top:15px;
+    margin-bottom:8px;
+    font-family:"Permanent Marker",cursive;
+    color:#fff;
+    text-shadow:1px 1px 0 #8000ff,0 0 6px #00ff88;
+}
+.diabeticos select{
+    width:100%;
+    padding:13px 14px;
+    border:2px solid rgba(0,255,255,.35);
+    border-radius:13px;
+    font-family:Arial,sans-serif;
+    font-size:1rem;
+    margin-bottom:10px;
+    background:#fff;
+    color:#111;
+    outline:none;
+}
+.diabeticos select:focus{
+    border-color:#00ff88;
+    box-shadow:0 0 15px rgba(0,255,136,.45);
+}
+.diabeticos .extras-diabeticos{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:11px;
+    margin-top:15px;
+}
+.diabeticos .extras-diabeticos label{
+    margin:0;
+    display:flex;
+    align-items:center;
+    gap:9px;
+    min-height:48px;
+    padding:11px;
+    border:1px solid rgba(0,255,255,.18);
+    border-radius:12px;
+    background:rgba(255,255,255,.06);
+    transition:.25s;
+    text-shadow:none;
+}
+.diabeticos .extras-diabeticos label:hover{
+    transform:translateY(-3px);
+    border-color:#00ff88;
+    background:rgba(0,255,136,.12);
+    box-shadow:0 0 12px rgba(0,255,136,.3);
+}
+.diabeticos .extras-diabeticos input{
+    width:18px;
+    height:18px;
+    accent-color:#00ff88;
+}
+@keyframes girarBordeDiabetico{to{transform:rotate(-360deg)}}
+
+
+/*=====RGB MENU =====*/
+
+.card::before {
+    content: "";
+    position: absolute;
+    inset: -5px;
+    border-radius: 20px;
+    z-index: -1;
+
+    background: linear-gradient(
+        90deg,
+        #ff0080,
+        #8000ff,
+        #00ffff,
+        #00ff00,
+        #ffff00,
+        #ff0080
+    );
+
+    background-size: 400% 400%;
+    animation: rgb 4s linear infinite;
+
+    filter: blur(8px);
+    opacity: 0.4;
+}
+
+.card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 3px solid transparent;
+
+    background:
+        linear-gradient(#1b1b3a, #1b1b3a) padding-box,
+        linear-gradient(
+            90deg,
+            #ff0080,
+            #8000ff,
+            #00ffff,
+            #00ff00,
+            #ffff00,
+            #ff0080
+        ) border-box;
+
+    background-size: 100% 100%, 400% 400%;
+    animation: rgb 4s linear infinite;
+
+    /* Brillo RGB */
+    box-shadow:
+        0 0 5px #ff0080,
+        0 0 10px #00ffff,
+        0 0 20px #8000ff;
+
+    transition: transform 0.3s ease;
+}
+
+.card h3,
+.section-title {
+    font-family: "Permanent Marker", cursive;
+    color: #ffffff;
+    letter-spacing: 1px;
+}
+.card h3 {
+    font-family: "Permanent Marker", cursive;
+    color: white;
+    text-shadow:
+        2px 2px 0px #8000ff,
+        0 0 8px rgba(255, 0, 200, 0.5);
+}
+
+/* EFECTO GRAFITI / NEÓN PARA LOS TEXTOS */
+.card h3,
+.section-title,
+.price,
+nav a,
+.marca,
+.diabeticos,
+.extras,
+.extras-diabeticos,
+.qr-text,
+.section-title,
+.section-text,
+.qr-section,
+.card-content,
+.card::before,
+.personalizar-box,
+.card:hover,
+.barra,
+.barra.scrolled,
+.nota-personalizar,
+.card:hover,
+.logo {
+    font-family: "Permanent Marker", cursive;
+    color: #ffffff;
+
+    text-shadow:
+        2px 2px 0px #8000ff,
+        -2px -2px 0px #ff0080,
+        0 0 5px #ff0080,
+        0 0 10px #8000ff,
+        0 0 20px rgba(0, 255, 255, 0.7);
+}
+
+/* Efecto al pasar el mouse */
+.card:hover {
+    transform: translateY(-8px) scale(1.03);
+
+    box-shadow:
+        0 0 10px #ff0080,
+        0 0 25px #00ffff,
+        0 0 40px #8000ff;
+}
+
+/* Animación RGB */
+@keyframes rgb {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* ===== FOOTER ===== */
+
+footer{
+    text-align:center;
+    padding:30px;
+    background:rgba(0,0,0,.6);
+    margin-top:40px;
+}
+
+/* ===== FONDO ANIMADO DEL MENÚ ===== */
+
+.pagina-menu{
+    min-height:100vh;
+    position:relative;
+    overflow-x:hidden;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(0,0,0,.85),
+        rgba(0,120,200,.45),
+        rgba(180,0,70,.45)
+    ),
+    url("Fondo.png");
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+}
+
+
+/* Capa de nieve animada */
+
+.pagina-menu::before{
+
+    content:"";
+    position:fixed;
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background-image:
+    radial-gradient(circle, rgb(15, 49, 240) 3px, transparent 4px),
+    radial-gradient(circle, #bdefff 5px, transparent 6px),
+    radial-gradient(circle, rgb(15, 190, 243) 2px, transparent 3px);
+
+    background-size:
+    70px 70px,
+    120px 120px,
+    50px 50px;
+
+
+    animation:nieveCaer 10s linear infinite;
+
+    opacity:.5;
+
+    pointer-events:none;
+
+    z-index:0;
+}
+
+
+/* Segunda capa para darle profundidad */
+
+.pagina-menu::after{
+
+    content:"";
+    position:fixed;
+    top:-100px;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background-image:
+    radial-gradient(circle,#3849e6 4px,transparent 5px);
+
+    background-size:100px 100px;
+
+    animation:nieveRapida 6s linear infinite;
+
+    opacity:.25;
+
+    pointer-events:none;
+
+    z-index:0;
+}
+
+
+/* Movimiento de nieve */
+
+@keyframes nieveCaer{
+
+    from{
+        background-position:
+        0 -200px,
+        50px -300px,
+        100px -400px;
+    }
+
+    to{
+        background-position:
+        100px 100vh,
+        200px 100vh,
+        0 100vh;
+    }
+
+}
+
+
+@keyframes nieveRapida{
+
+    from{
+        transform:translateY(-100px);
+    }
+
+    to{
+        transform:translateY(100vh);
+    }
+
+}
+
+
+/* Contenido encima de la animación */
+
+.menu,
+.qr-section,
+footer{
+    position:relative;
+    z-index:2;
+}
+/* ===== BARRA DE NAVEGACIÓN ===== */
+
+.barra{
+
+    position:fixed;
+    top:0;
+    left:0;
+
+    width:100%;
+    height:85px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:10px 50px;
+
+    background:rgba(0,0,0,.35);
+
+    backdrop-filter:blur(15px);
+
+    border-bottom:1px solid rgba(255,255,255,.2);
+
+    z-index:1000;
+
+    transition:.4s;
+
+}
+
+
+/* Cuando baja la página */
+
+.barra.scrolled{
+
+    background:rgba(0,0,0,.85);
+
+    box-shadow:0 5px 25px rgba(255,0,128,.3);
+
+}
+
+
+/* Logo y nombre */
+
+.marca{
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+}
+
+
+.marca img{
+
+    width:60px;
+    height:60px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:3px solid #ff0080;
+
+}
+
+
+.marca h2{
+    font-size:1.8rem;
+    font-family:"Permanent Marker", cursive;
+    color:#ffffff;
+    
+    text-shadow:
+        2px 2px 0 #8000ff,
+        -2px -2px 0 #ff0080,
+        0 0 5px #ff0080,
+        0 0 10px #8000ff,
+        0 0 20px rgba(0,255,255,.7);
+}
+
+
+/* Botones del menú */
+
+.nav{
+
+    display:flex;
+    gap:25px;
+
+}
+
+
+.nav a{
+    color:#ffffff;
+    text-decoration:none;
+    font-family:"Permanent Marker", cursive;
+    font-weight:400;
+    transition:.3s;
+    position:relative;
+
+    text-shadow:
+        2px 2px 0 #8000ff,
+        -2px -2px 0 #ff0080,
+        0 0 5px #ff0080,
+        0 0 10px #8000ff;
+}
+
+
+/* Línea animada debajo */
+
+.nav a::after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:-8px;
+
+    left:0;
+
+    width:0;
+
+    height:3px;
+
+    background:#ff0080;
+
+    transition:.3s;
+
+}
+
+
+.nav a:hover::after{
+
+    width:100%;
+
+}
+
+
+.nav a:hover{
+
+    color:#ff66b3;
+
+}
+/* ===== REDES SOCIALES DEL FOOTER ===== */
+.redes-sociales{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:15px;
+    margin:18px 0;
+}
+
+.redes-sociales a{
+    display:inline-block;
+    padding:10px 18px;
+    border-radius:20px;
+    color:#fff;
+    text-decoration:none;
+    font-family:"Permanent Marker", cursive;
+    background:linear-gradient(90deg,#ff0080,#8000ff,#00aaff);
+    box-shadow:0 0 10px rgba(255,0,128,.45);
+    transition:.3s;
+}
+
+.redes-sociales a:hover{
+    transform:translateY(-3px) scale(1.05);
+    box-shadow:0 0 20px rgba(0,255,255,.65);
+}
+
+footer p{
+    color:#fff;
+    margin:8px 0 0;
+}
+
+/* ===== REDES SOCIALES ===== */
+.redes-sociales{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:15px;
+    margin:20px 0;
+}
+.redes-sociales a{
+    display:inline-block;
+    padding:10px 18px;
+    border-radius:25px;
+    color:#fff;
+    text-decoration:none;
+    background:linear-gradient(90deg,#ff0080,#8000ff,#00aeff);
+    text-shadow:0 0 5px rgba(0,0,0,.7);
+    transition:.3s;
+}
+.redes-sociales a:hover{transform:translateY(-3px) scale(1.05)}
+
+
+/* ===== AJUSTES FINALES DE LOS CUADROS ===== */
+.personalizar,
+#personalizar,
+#diabeticos{
+    position:relative;
+    z-index:2;
+}
+.personalizar-box > *,
+.diabeticos > *{
+    position:relative;
+    z-index:2;
+}
+@media(max-width:600px){
+    .personalizar-box,
+    .diabeticos{
+        margin:30px 12px;
+        padding:22px;
+    }
+    .personalizar-box .extras,
+    .diabeticos .extras-diabeticos{
+        grid-template-columns:1fr;
+    }
+}
+
+
+/* =========================================================
+   CORRECCIONES FINALES
+   - Carrito integrado en la barra
+   - Cuadros centrados
+   - Footer siempre abajo
+   - Contenido separado de la barra fija
+   ========================================================= */
+
+/* ===== ESTRUCTURA DE LA PÁGINA ===== */
+html,
+body{
+    min-height:100%;
+}
+
+body.pagina-menu{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+}
+
+/* La barra es fija, por eso dejamos espacio arriba */
+#personalizar,
+#diabeticos{
+    flex:1 0 auto;
+    width:100%;
+    padding:115px 20px 55px;
+}
+
+/* Títulos de estas páginas */
+#personalizar .section-title,
+#diabeticos .section-title{
+    margin-top:0;
+    margin-bottom:28px;
+    position:relative;
+    z-index:5;
+}
+
+/* ===== FOOTER ABAJO ===== */
+body.pagina-menu footer{
+    flex-shrink:0;
+    width:100%;
+    margin-top:auto;
+    position:relative;
+    z-index:10;
+}
+
+/* ===== CUADRO PERSONALIZADO: MÁS LIMPIO Y CENTRADO ===== */
+#personalizar .personalizar-box{
+    width:min(720px,100%);
+    margin:25px auto 0;
+}
+
+/* ===== CUADRO DIABÉTICOS: MÁS LIMPIO Y CENTRADO ===== */
+#diabeticos .diabeticos{
+    width:min(720px,100%);
+    margin:25px auto 0;
+}
+
+/* Precio base y precio de extras */
+.precio-base,
+.precio-seleccionado{
+    display:block;
+    text-align:center;
+    font-family:"Permanent Marker",cursive;
+    font-size:1.25rem;
+    color:#fff;
+    margin:12px 0;
+    text-shadow:
+        2px 2px 0 #8000ff,
+        -1px -1px 0 #ff0080,
+        0 0 10px #00ffff;
+}
+
+.precio-topping{
+    display:block;
+    text-align:center;
+    margin:8px 0 15px;
+}
+
+/* ===== BOTÓN AGREGAR ===== */
+.btn-agregar-personalizado{
+    display:block;
+    appearance:none;
+    -webkit-appearance:none;
+    cursor:pointer;
+}
+
+/* =========================================================
+   CARRITO
+   ========================================================= */
+
+/* Botón del carrito dentro de la barra */
+.cart-button{
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:52px;
+    height:46px;
+    padding:0;
+    margin-left:5px;
+    border:2px solid rgba(0,255,255,.65);
+    border-radius:14px;
+    cursor:pointer;
+    color:#fff;
+    background:linear-gradient(135deg,#ff0080,#8000ff,#009dff);
+    box-shadow:
+        0 0 8px rgba(255,0,128,.7),
+        0 0 18px rgba(0,255,255,.35);
+    transition:.3s ease;
+    z-index:1001;
+}
+
+.cart-button::before{
+    content:"🛒";
+    font-family:Arial,sans-serif;
+    font-size:22px;
+    line-height:1;
+}
+
+.cart-button:hover{
+    transform:translateY(-2px) scale(1.06);
+    box-shadow:
+        0 0 12px #ff0080,
+        0 0 25px #00ffff;
+}
+
+/* Número de productos */
+.cart-count{
+    position:absolute;
+    top:-9px;
+    right:-8px;
+    min-width:23px;
+    height:23px;
+    padding:2px 6px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:#ff0080;
+    border:2px solid #fff;
+    color:#fff;
+    font-family:Arial,sans-serif;
+    font-size:12px;
+    font-weight:800;
+    line-height:1;
+    text-shadow:none;
+    box-shadow:0 0 10px #ff0080;
+}
+
+/* Fondo oscuro cuando el carrito está abierto */
+.cart-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.65);
+    backdrop-filter:blur(3px);
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transition:.3s ease;
+    z-index:1998;
+}
+
+.cart-overlay.active{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+}
+
+/* Panel lateral */
+.cart-panel{
+    position:fixed;
+    top:0;
+    right:0;
+    width:min(430px,92vw);
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    padding:0;
+    background:
+        linear-gradient(145deg,rgba(10,8,30,.98),rgba(18,8,35,.98));
+    border-left:3px solid transparent;
+    border-image:linear-gradient(180deg,#ff0080,#8000ff,#00ffff) 1;
+    box-shadow:-10px 0 40px rgba(0,0,0,.55),-5px 0 25px rgba(255,0,128,.25);
+    transform:translateX(105%);
+    transition:transform .35s ease;
+    visibility:hidden;
+    z-index:2000;
+    overflow:hidden;
+}
+
+.cart-panel.open{
+    transform:translateX(0);
+    visibility:visible;
+}
+
+/* Encabezado */
+.cart-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    padding:20px 22px;
+    border-bottom:1px solid rgba(255,255,255,.15);
+    background:linear-gradient(90deg,rgba(255,0,128,.16),rgba(128,0,255,.18),rgba(0,255,255,.12));
+}
+
+.cart-header h2{
+    margin:0;
+    color:#fff;
+    font-family:"Permanent Marker",cursive;
+    font-size:1.5rem;
+    text-shadow:
+        2px 2px 0 #8000ff,
+        -1px -1px 0 #ff0080,
+        0 0 10px #00ffff;
+}
+
+.cart-close{
+    width:38px;
+    height:38px;
+    border:0;
+    border-radius:50%;
+    cursor:pointer;
+    color:#fff;
+    background:linear-gradient(135deg,#ff0080,#8000ff);
+    font-family:Arial,sans-serif;
+    font-size:18px;
+    transition:.25s;
+}
+
+.cart-close:hover{
+    transform:rotate(90deg) scale(1.08);
+    box-shadow:0 0 15px #ff0080;
+}
+
+/* Zona para arrastrar */
+.cart-drop-zone{
+    margin:14px 18px 8px;
+    padding:13px;
+    text-align:center;
+    border:2px dashed rgba(0,255,255,.45);
+    border-radius:14px;
+    color:#fff;
+    font-family:"Permanent Marker",cursive;
+    font-size:.85rem;
+    background:rgba(0,255,255,.05);
+    transition:.25s;
+}
+
+.cart-drop-zone.drag-over{
+    border-color:#ff0080;
+    background:rgba(255,0,128,.14);
+    box-shadow:0 0 18px rgba(255,0,128,.35);
+}
+
+/* Productos del carrito */
+.cart-items{
+    flex:1;
+    min-height:0;
+    overflow-y:auto;
+    padding:10px 18px 18px;
+}
+
+.cart-items::-webkit-scrollbar{
+    width:7px;
+}
+
+.cart-items::-webkit-scrollbar-thumb{
+    background:linear-gradient(#ff0080,#8000ff,#00ffff);
+    border-radius:10px;
+}
+
+.cart-item{
+    position:relative;
+    margin-bottom:12px;
+    padding:14px;
+    border:1px solid rgba(0,255,255,.22);
+    border-radius:16px;
+    background:rgba(255,255,255,.07);
+    box-shadow:0 0 12px rgba(128,0,255,.12);
+}
+
+.cart-item h4{
+    margin:0 30px 5px 0;
+    color:#fff;
+    font-family:"Permanent Marker",cursive;
+    font-size:1rem;
+    text-shadow:1px 1px 0 #8000ff;
+}
+
+.cart-item p{
+    margin:3px 0;
+    color:#ddd;
+    font-family:Arial,sans-serif;
+    font-size:.88rem;
+}
+
+.cart-item-price{
+    color:#00ffff !important;
+    font-weight:800;
+}
+
+.cart-item-remove{
+    position:absolute;
+    top:9px;
+    right:9px;
+    width:28px;
+    height:28px;
+    border:0;
+    border-radius:50%;
+    cursor:pointer;
+    color:#fff;
+    background:#e0005c;
+    font-family:Arial,sans-serif;
+    font-size:14px;
+}
+
+.cart-item-controls{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-top:10px;
+}
+
+.cart-item-controls button{
+    width:30px;
+    height:30px;
+    border:0;
+    border-radius:8px;
+    cursor:pointer;
+    color:#fff;
+    background:linear-gradient(135deg,#8000ff,#00aaff);
+    font-family:Arial,sans-serif;
+    font-size:17px;
+}
+
+.cart-item-controls span{
+    min-width:28px;
+    text-align:center;
+    color:#fff;
+    font-family:Arial,sans-serif;
+    font-weight:800;
+}
+
+/* Carrito vacío */
+.cart-empty{
+    padding:45px 15px;
+    text-align:center;
+    color:#fff;
+    font-family:"Permanent Marker",cursive;
+    line-height:1.6;
+    text-shadow:0 0 8px #8000ff;
+}
+
+/* Parte inferior */
+.cart-footer{
+    flex-shrink:0;
+    padding:17px 18px 20px;
+    border-top:1px solid rgba(255,255,255,.15);
+    background:rgba(0,0,0,.32);
+}
+
+.cart-total{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:14px;
+    color:#fff;
+    font-family:"Permanent Marker",cursive;
+    font-size:1.15rem;
+}
+
+.cart-total strong{
+    color:#00ffff;
+    font-size:1.35rem;
+    text-shadow:0 0 10px #00ffff;
+}
+
+.cart-actions{
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:10px;
+}
+
+.whatsapp-btn,
+.clear-cart{
+    min-height:45px;
+    border:0;
+    border-radius:12px;
+    cursor:pointer;
+    color:#fff;
+    font-family:"Permanent Marker",cursive;
+    transition:.25s;
+}
+
+.whatsapp-btn{
+    padding:10px 14px;
+    background:linear-gradient(90deg,#00a83b,#00d95a);
+    box-shadow:0 0 12px rgba(0,255,100,.3);
+}
+
+.clear-cart{
+    padding:10px 13px;
+    background:linear-gradient(90deg,#d40055,#ff0080);
+}
+
+.whatsapp-btn:hover,
+.clear-cart:hover{
+    transform:translateY(-2px);
+    box-shadow:0 0 18px rgba(0,255,255,.45);
+}
+
+/* ===== PRODUCTOS ARRASTRABLES ===== */
+.card,
+.producto,
+.producto-card,
+.product-card{
+    cursor:grab;
+}
+
+.card:active,
+.producto:active,
+.producto-card:active,
+.product-card:active{
+    cursor:grabbing;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:800px){
+    .barra{
+        padding:10px 18px;
+    }
+
+    .marca h2{
+        font-size:1.35rem;
+    }
+
+    .nav{
+        gap:12px;
+    }
+
+    .nav a{
+        font-size:.8rem;
+    }
+
+    .cart-button{
+        width:46px;
+        height:42px;
+    }
+}
+
+@media(max-width:600px){
+    #personalizar,
+    #diabeticos{
+        padding:105px 10px 35px;
+    }
+
+    #personalizar .personalizar-box,
+    #diabeticos .diabeticos{
+        margin-top:15px;
+        padding:20px 16px;
+    }
+
+    .personalizar-box .extras,
+    .diabeticos .extras-diabeticos{
+        grid-template-columns:1fr;
+    }
+
+    .cart-panel{
+        width:94vw;
+    }
+
+    .cart-actions{
+        grid-template-columns:1fr;
+    }
+}
+
+
+/* =========================================================
+   DISEÑO NUEVO DE LOS CUADROS PERSONALIZAR / DIABÉTICOS
+   Más elegante, compacto y animado
+   ========================================================= */
+
+/* Título de cada sección */
+#personalizar .section-title,
+#diabeticos .section-title{
+    display:block;
+    text-align:center;
+    margin:0 auto 22px;
+    font-family:"Permanent Marker",cursive;
+    font-size:clamp(2rem,4vw,3rem);
+    color:#fff;
+    text-shadow:
+        3px 3px 0 #8000ff,
+        -2px -2px 0 #ff0080,
+        0 0 10px #ff0080,
+        0 0 22px #00ffff;
+    animation:tituloNeon 2.8s ease-in-out infinite alternate;
+}
+
+@keyframes tituloNeon{
+    from{
+        filter:drop-shadow(0 0 3px #ff0080);
+        transform:translateY(0);
+    }
+    to{
+        filter:drop-shadow(0 0 12px #00ffff);
+        transform:translateY(-2px);
+    }
+}
+
+/* ===== PERSONALIZADO ===== */
+#personalizar .personalizar-box{
+    position:relative;
+    isolation:isolate;
+    width:min(690px,calc(100% - 20px));
+    max-width:690px;
+    margin:20px auto 35px;
+    padding:30px 32px;
+    border:2px solid transparent;
+    border-radius:30px;
+
+    /* Cristal oscuro para que el contenido se lea bien */
+    background:
+        linear-gradient(145deg,rgba(12,8,35,.94),rgba(20,7,38,.88)) padding-box,
+        conic-gradient(
+            from var(--angulo,0deg),
+            #ff0080,
+            #8000ff,
+            #00bfff,
+            #00ffff,
+            #8000ff,
+            #ff0080
+        ) border-box;
+
+    box-shadow:
+        0 0 12px rgba(255,0,128,.55),
+        0 0 30px rgba(128,0,255,.32),
+        inset 0 0 30px rgba(0,255,255,.07);
+
+    backdrop-filter:blur(18px);
+    overflow:hidden;
+
+    animation:
+        bordePersonalizado 6s linear infinite,
+        flotacionCuadro 5s ease-in-out infinite;
+}
+
+/* Brillo que recorre el cuadro */
+#personalizar .personalizar-box::before{
+    content:"";
+    position:absolute;
+    inset:-2px;
+    border-radius:30px;
+    padding:2px;
+    background:conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        transparent 55deg,
+        #ff0080 90deg,
+        #8000ff 145deg,
+        #00ffff 210deg,
+        transparent 270deg,
+        transparent 360deg
+    );
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;
+    mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    mask-composite:exclude;
+    animation:rotarMarco 3.5s linear infinite;
+    z-index:0;
+    pointer-events:none;
+}
+
+#personalizar .personalizar-box::after{
+    content:"";
+    position:absolute;
+    width:180px;
+    height:180px;
+    top:-80px;
+    right:-70px;
+    border-radius:50%;
+    background:#00ffff;
+    filter:blur(70px);
+    opacity:.18;
+    z-index:0;
+    pointer-events:none;
+    animation:brilloInterior 4s ease-in-out infinite alternate;
+}
+
+/* Todo el contenido por encima de las luces */
+#personalizar .personalizar-box > *{
+    position:relative;
+    z-index:2;
+}
+
+@keyframes bordePersonalizado{
+    0%{--angulo:0deg;}
+    100%{--angulo:360deg;}
+}
+
+@keyframes rotarMarco{
+    to{transform:rotate(360deg);}
+}
+
+@keyframes flotacionCuadro{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-5px);}
+}
+
+@keyframes brilloInterior{
+    from{transform:translate(0,0) scale(.9);opacity:.12;}
+    to{transform:translate(-80px,70px) scale(1.35);opacity:.25;}
+}
+
+/* ===== DIABÉTICOS ===== */
+#diabeticos .diabeticos{
+    position:relative;
+    isolation:isolate;
+    width:min(690px,calc(100% - 20px));
+    max-width:690px;
+    margin:20px auto 35px;
+    padding:30px 32px;
+    border:2px solid transparent;
+    border-radius:30px;
+
+    background:
+        linear-gradient(145deg,rgba(5,30,27,.95),rgba(8,15,35,.91)) padding-box,
+        conic-gradient(
+            from var(--anguloD,0deg),
+            #00ff88,
+            #00ffff,
+            #008cff,
+            #8000ff,
+            #00ff88
+        ) border-box;
+
+    box-shadow:
+        0 0 12px rgba(0,255,136,.55),
+        0 0 30px rgba(0,255,255,.28),
+        inset 0 0 30px rgba(0,255,136,.07);
+
+    backdrop-filter:blur(18px);
+    overflow:hidden;
+
+    animation:
+        bordeDiabetico 6s linear infinite,
+        flotacionDiabetico 5.5s ease-in-out infinite;
+}
+
+#diabeticos .diabeticos::before{
+    content:"";
+    position:absolute;
+    inset:-2px;
+    border-radius:30px;
+    padding:2px;
+    background:conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        transparent 55deg,
+        #00ff88 95deg,
+        #00ffff 155deg,
+        #8000ff 220deg,
+        transparent 275deg,
+        transparent 360deg
+    );
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;
+    mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    mask-composite:exclude;
+    animation:rotarMarcoDiabetico 3.8s linear infinite;
+    z-index:0;
+    pointer-events:none;
+}
+
+#diabeticos .diabeticos::after{
+    content:"";
+    position:absolute;
+    width:190px;
+    height:190px;
+    bottom:-100px;
+    left:-70px;
+    border-radius:50%;
+    background:#00ff88;
+    filter:blur(70px);
+    opacity:.16;
+    z-index:0;
+    pointer-events:none;
+    animation:brilloDiabetico 4.5s ease-in-out infinite alternate;
+}
+
+#diabeticos .diabeticos > *{
+    position:relative;
+    z-index:2;
+}
+
+@keyframes bordeDiabetico{
+    0%{--anguloD:0deg;}
+    100%{--anguloD:360deg;}
+}
+
+@keyframes rotarMarcoDiabetico{
+    to{transform:rotate(-360deg);}
+}
+
+@keyframes flotacionDiabetico{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-5px);}
+}
+
+@keyframes brilloDiabetico{
+    from{transform:translate(0,0) scale(.9);opacity:.10;}
+    to{transform:translate(80px,-70px) scale(1.3);opacity:.23;}
+}
+
+/* Inputs más modernos */
+#personalizar .personalizar-box select,
+#diabeticos .diabeticos select{
+    min-height:46px;
+    border:2px solid rgba(255,255,255,.22);
+    transition:.3s ease;
+}
+
+#personalizar .personalizar-box select:hover{
+    border-color:#ff0080;
+    box-shadow:0 0 15px rgba(255,0,128,.35);
+    transform:translateY(-1px);
+}
+
+#diabeticos .diabeticos select:hover{
+    border-color:#00ff88;
+    box-shadow:0 0 15px rgba(0,255,136,.35);
+    transform:translateY(-1px);
+}
+
+/* Extras como pequeñas tarjetas */
+#personalizar .extras label,
+#diabeticos .extras-diabeticos label{
+    position:relative;
+    overflow:hidden;
+    transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;
+}
+
+#personalizar .extras label::after,
+#diabeticos .extras-diabeticos label::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-120%;
+    width:70%;
+    height:100%;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.18),
+        transparent
+    );
+    transform:skewX(-20deg);
+    transition:.55s;
+}
+
+#personalizar .extras label:hover::after,
+#diabeticos .extras-diabeticos label:hover::after{
+    left:140%;
+}
+
+#personalizar .extras label:hover{
+    transform:translateY(-4px) scale(1.02);
+}
+
+#diabeticos .extras-diabeticos label:hover{
+    transform:translateY(-4px) scale(1.02);
+}
+
+/* Precio y botón con más presencia */
+#personalizar .precio-seleccionado,
+#personalizar .precio-topping,
+#diabeticos .precio-seleccionado,
+#diabeticos .precio-topping{
+    position:relative;
+    z-index:3;
+}
+
+#personalizar .btn-agregar-personalizado,
+#diabeticos .btn-agregar-personalizado{
+    position:relative;
+    overflow:hidden;
+    margin-top:20px;
+}
+
+#personalizar .btn-agregar-personalizado::after,
+#diabeticos .btn-agregar-personalizado::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:45%;
+    height:100%;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);
+    transform:skewX(-20deg);
+    animation:pasoBoton 2.8s ease-in-out infinite;
+}
+
+@keyframes pasoBoton{
+    0%,35%{left:-100%;}
+    70%,100%{left:150%;}
+}
+
+/* En pantallas pequeñas no se mueve tanto */
+@media(max-width:600px){
+    #personalizar .personalizar-box,
+    #diabeticos .diabeticos{
+        width:calc(100% - 12px);
+        padding:23px 18px;
+        border-radius:24px;
+        animation-duration:7s;
+    }
+}
+
+
+/* ===== PRECIOS EXACTOS Y BOTÓN DE AGREGAR ===== */
+.precio-topping{
+    margin:8px 0 15px;
+    text-align:center;
+    color:#00ffff;
+    font-family:"Permanent Marker",cursive;
+    font-size:.95rem;
+    text-shadow:0 0 8px rgba(0,255,255,.6);
+}
+
+.btn-agregar,
+.btn-agregar-personalizado{
+    position:relative;
+    display:block;
+    width:100%;
+    min-height:48px;
+    margin:20px auto 0;
+    padding:12px 20px;
+    border:0;
+    border-radius:15px;
+    cursor:pointer;
+    overflow:hidden;
+    color:#fff;
+    background:linear-gradient(90deg,#ff0080,#8000ff,#008cff,#00cfff);
+    background-size:250% 100%;
+    font-family:"Permanent Marker",cursive;
+    font-size:1rem;
+    box-shadow:0 0 14px rgba(255,0,128,.45);
+    animation:botonGradiente 4s ease infinite;
+    transition:.25s ease;
+}
+
+.btn-agregar:hover,
+.btn-agregar-personalizado:hover{
+    transform:translateY(-3px) scale(1.01);
+    box-shadow:0 0 24px rgba(0,255,255,.55),0 0 20px rgba(255,0,128,.4);
+}
+
+@keyframes botonGradiente{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+/* =====================================================
+   LED SOLO EN EL BORDE DE LAS TARJETAS
+   ===================================================== */
+
+.card,
+.producto,
+.producto-card,
+.product-card {
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+
+    box-shadow:
+        0 0 8px #ff0080,
+        0 0 18px #8000ff,
+        0 0 30px #00ffff,
+        0 0 45px rgba(0,255,255,.7);
+
+    animation: brilloTarjeta 2s ease-in-out infinite alternate;
+}
+
+@keyframes brilloTarjeta {
+    from {
+        filter: drop-shadow(0 0 5px #ff0080);
+    }
+
+    to {
+        filter:
+            drop-shadow(0 0 12px #ff0080)
+            drop-shadow(0 0 20px #00ffff);
+    }
+}
+
+/* Borde LED animado */
+.card::before,
+.producto::before,
+.producto-card::before,
+.product-card::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+
+    background: conic-gradient(
+        from 0deg,
+        #ff0080,
+        #8000ff,
+        #00ffff,
+        #00ff88,
+        #ffff00,
+        #ff0080
+    );
+
+    animation: ledBorde 3s linear infinite;
+
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Mantiene el contenido encima del LED */
+.card > *,
+.producto > *,
+.producto-card > *,
+.product-card > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Cubre el interior y deja visible solamente el borde */
+.card::after,
+.producto::after,
+.producto-card::after,
+.product-card::after {
+    content: "";
+    position: absolute;
+    inset: 3px;
+    border-radius: inherit;
+    background: inherit;
+    z-index: 1;
+    pointer-events: none;
+}
+
+@keyframes ledBorde {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =====================================================
+   LED SOLO EN EL BOTÓN AGREGAR AL CARRITO
+   ===================================================== */
+
+.btn-agregar,
+.btn-agregar-personalizado {
+    position: relative;
+    overflow: hidden;
+
+    border: 2px solid #00ffff;
+
+    background: linear-gradient(
+        90deg,
+        #ff0080,
+        #8000ff,
+        #008cff,
+        #00cfff
+    );
+
+    background-size: 300% 100%;
+
+    animation: ledBoton 3s linear infinite;
+
+    box-shadow:
+        0 0 5px #00ffff,
+        0 0 10px #8000ff;
+}
+
+/* Brillo que pasa por el botón */
+.btn-agregar::after,
+.btn-agregar-personalizado::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 50%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.8),
+        transparent
+    );
+
+    transform: skewX(-20deg);
+
+    animation: brilloBoton 2.5s infinite;
+
+    pointer-events: none;
+}
+
+@keyframes ledBoton {
+    0% {
+        background-position: 0% 50%;
+        box-shadow:
+            0 0 5px #ff0080,
+            0 0 10px #ff0080;
+    }
+
+    50% {
+        background-position: 100% 50%;
+        box-shadow:
+            0 0 8px #00ffff,
+            0 0 18px #00ffff;
+    }
+
+    100% {
+        background-position: 0% 50%;
+        box-shadow:
+            0 0 5px #ff0080,
+            0 0 10px #ff0080;
+    }
+}
+
+@keyframes brilloBoton {
+    0% {
+        left: -100%;
+    }
+
+    45% {
+        left: -100%;
+    }
+
+    70% {
+        left: 150%;
+    }
+
+    100% {
+        left: 150%;
+    }
+}
