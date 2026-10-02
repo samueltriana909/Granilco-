@@ -1926,118 +1926,98 @@ body.pagina-menu footer{
     }
 }
 /* =========================================================
-   RESPONSIVE COMPLETO
-   PC - TABLET - CELULAR
+   ADAPTACIÓN PARA TABLET Y CELULAR
+   Mantiene el diseño de PC
    ========================================================= */
 
-/* Evitar desplazamiento horizontal */
-html,
-body {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-}
-
-/* ===== PC / PANTALLAS GRANDES ===== */
-
-.cards {
-    width: min(1200px, calc(100% - 40px));
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.card {
-    min-width: 0;
-}
-
-.img-space {
-    height: clamp(200px, 20vw, 260px);
-}
-
-.card-content {
-    padding: clamp(18px, 2vw, 25px);
-}
-
-.card-content h3 {
-    font-size: clamp(1.3rem, 2vw, 1.8rem);
-}
-
-.price {
-    font-size: clamp(1.5rem, 2vw, 2rem);
-}
-
-
-/* =========================================================
-   TABLETS
-   ========================================================= */
-
+/* TABLET */
 @media (max-width: 1000px) {
+
+    .cards {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        width: calc(100% - 30px);
+    }
+
+    .card {
+        min-width: 0;
+    }
+
+    .img-space {
+        height: 220px;
+    }
+
+    .card-content {
+        padding: 18px;
+    }
+
+    .card-content h3 {
+        font-size: 1.5rem;
+    }
+
+    .card-content p {
+        font-size: 0.9rem;
+    }
+
+    .price {
+        font-size: 1.7rem;
+    }
 
     .barra {
         padding: 10px 20px;
     }
 
-    .cards {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 22px;
-        width: min(900px, calc(100% - 30px));
+    .nav {
+        gap: 15px;
     }
 
-    .menu {
-        padding-left: 15px;
-        padding-right: 15px;
+    .nav a {
+        font-size: 0.85rem;
     }
-
-    .section-title {
-        font-size: clamp(2rem, 5vw, 3rem);
-    }
-
-    .personalizar-box,
-    .diabeticos {
-        width: min(700px, calc(100% - 30px));
-    }
-
 }
 
 
-/* =========================================================
-   TABLETS PEQUEÑAS / CELULARES GRANDES
-   ========================================================= */
+/* CELULAR */
+@media (max-width: 700px) {
 
-@media (max-width: 750px) {
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
 
-    /* Barra superior */
     .barra {
+        width: 100%;
         height: auto;
         min-height: 70px;
-        padding: 8px 12px;
+        padding: 8px 10px;
         gap: 8px;
         flex-wrap: wrap;
     }
 
     .marca {
-        gap: 8px;
-        min-width: 0;
         flex: 1;
+        min-width: 0;
     }
 
     .marca img {
-        width: 48px;
-        height: 48px;
+        width: 45px;
+        height: 45px;
     }
 
     .marca h2 {
-        font-size: clamp(1.1rem, 4vw, 1.4rem);
+        font-size: 1.1rem;
         white-space: nowrap;
     }
 
-    /* Navegación */
     .nav {
-        order: 3;
         width: 100%;
-        justify-content: flex-start;
-        gap: 18px;
-        padding: 5px 3px 8px;
+        order: 3;
+        display: flex;
+        gap: 15px;
         overflow-x: auto;
+        padding: 5px 2px 8px;
         scrollbar-width: none;
     }
 
@@ -2046,340 +2026,162 @@ body {
     }
 
     .nav a {
-        font-size: .85rem;
+        font-size: 0.8rem;
         white-space: nowrap;
     }
 
-    /* Carrito */
-    .cart-button {
-        flex-shrink: 0;
-        width: 45px;
-        height: 40px;
-    }
 
-    /* Separación de contenido */
-    .menu {
-        padding-top: 125px;
-    }
+    /* MISMO DISEÑO DE PC, PERO MÁS PEQUEÑO */
 
-    #personalizar,
-    #diabeticos {
-        padding-top: 125px;
-    }
-
-    /* Tarjetas */
     .cards {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 18px;
-        width: calc(100% - 20px);
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        width: calc(100% - 12px);
+    }
+
+    .card {
+        min-width: 0;
+        width: 100%;
     }
 
     .img-space {
-        height: 210px;
+        height: 150px;
     }
 
     .card-content {
-        padding: 16px 12px;
+        padding: 12px 8px;
     }
 
     .card-content h3 {
-        font-size: 1.3rem;
+        font-size: 1rem;
+        line-height: 1.2;
     }
 
     .card-content p {
-        font-size: .9rem;
+        font-size: 0.7rem;
+        line-height: 1.3;
     }
 
     .price {
-        font-size: 1.5rem;
-        margin-top: 12px;
+        font-size: 1.1rem;
+        margin-top: 8px;
     }
 
-    .btn-agregar {
-        font-size: .9rem;
-        padding: 11px 8px;
+    .btn-agregar,
+    .btn-agregar-personalizado {
+        width: 100%;
+        min-height: 40px;
+        padding: 8px 5px;
+        font-size: 0.7rem;
     }
 
-    /* Cuadros */
-    #personalizar .personalizar-box,
-    #diabeticos .diabeticos {
-        width: calc(100% - 20px);
-        padding: 22px 18px;
-    }
 
-}
+    /* TÍTULOS */
 
-
-/* =========================================================
-   CELULARES
-   ========================================================= */
-
-@media (max-width: 600px) {
-
-    /* Barra */
-    .barra {
-        padding: 8px 10px;
-    }
-
-    .marca img {
-        width: 42px;
-        height: 42px;
-        border-width: 2px;
-    }
-
-    .marca h2 {
-        font-size: 1.05rem;
-    }
-
-    .nav {
-        gap: 14px;
-    }
-
-    .nav a {
-        font-size: .75rem;
-    }
-
-    /* Títulos */
-    .section-title,
-    #personalizar .section-title,
-    #diabeticos .section-title {
-        font-size: clamp(1.8rem, 9vw, 2.5rem);
+    .section-title {
+        font-size: 2rem;
         line-height: 1.1;
     }
 
     .section-text {
-        font-size: .9rem;
+        font-size: 0.85rem;
         padding: 0 10px;
     }
 
-    /* Una tarjeta por fila */
-    .cards {
-        grid-template-columns: 1fr;
-        width: calc(100% - 20px);
-        gap: 20px;
-    }
 
-    .card {
-        width: 100%;
-    }
+    /* PERSONALIZACIÓN */
 
-    .img-space {
-        height: 230px;
-    }
-
-    .card-content {
-        padding: 18px 15px;
-    }
-
-    .card-content h3 {
-        font-size: 1.5rem;
-    }
-
-    .card-content p {
-        font-size: .9rem;
-        line-height: 1.5;
-    }
-
-    .price {
-        font-size: 1.7rem;
-    }
-
-    /* Botón */
-    .btn-agregar,
-    .btn-agregar-personalizado {
-        min-height: 48px;
-        font-size: .9rem;
-    }
-
-    /* Personalización */
     #personalizar,
     #diabeticos {
-        padding: 120px 8px 35px;
+        padding-left: 8px;
+        padding-right: 8px;
     }
 
-    #personalizar .personalizar-box,
-    #diabeticos .diabeticos {
+    .personalizar-box,
+    .diabeticos {
         width: 100%;
-        margin: 15px auto 30px;
-        padding: 20px 14px;
-        border-radius: 22px;
+        padding: 18px 12px;
     }
 
-    /* Extras */
-    #personalizar .extras,
-    #diabeticos .extras-diabeticos {
+    .extras,
+    .extras-diabeticos {
         grid-template-columns: 1fr;
-        gap: 9px;
     }
 
-    #personalizar .extras label,
-    #diabeticos .extras-diabeticos label {
-        min-height: 48px;
-        padding: 10px;
-        font-size: .9rem;
-    }
-
-    /* Select */
-    #personalizar .personalizar-box select,
-    #diabeticos .diabeticos select {
+    .personalizar-box select,
+    .diabeticos select {
         width: 100%;
-        min-height: 48px;
+        min-height: 45px;
         font-size: 16px;
     }
 
-    /* QR */
-    .qr-section {
-        padding: 50px 15px;
-    }
 
-    .qr-box {
-        padding: 12px;
-        max-width: 90%;
-    }
+    /* CARRITO */
 
-    .qr-box img {
-        width: min(220px, 70vw);
-        max-width: 100%;
-    }
-
-    /* Footer */
-    footer {
-        padding: 25px 15px;
-    }
-
-    .redes-sociales {
-        gap: 10px;
-    }
-
-    .redes-sociales a {
-        padding: 9px 13px;
-        font-size: .85rem;
-    }
-
-    /* Carrito */
     .cart-panel {
         width: 100vw;
         max-width: 100vw;
-    }
-
-    .cart-header {
-        padding: 16px;
-    }
-
-    .cart-items {
-        padding-left: 12px;
-        padding-right: 12px;
-    }
-
-    .cart-footer {
-        padding: 14px 12px 16px;
     }
 
     .cart-actions {
         grid-template-columns: 1fr;
     }
 
+    .cart-items {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
 }
 
 
-/* =========================================================
-   CELULARES PEQUEÑOS
-   ========================================================= */
-
+/* CELULARES MUY PEQUEÑOS */
 @media (max-width: 400px) {
-
-    .marca h2 {
-        font-size: .95rem;
-    }
 
     .marca img {
         width: 38px;
         height: 38px;
     }
 
-    .cart-button {
-        width: 40px;
-        height: 38px;
+    .marca h2 {
+        font-size: 0.95rem;
     }
 
     .nav {
-        gap: 11px;
+        gap: 10px;
     }
 
     .nav a {
-        font-size: .7rem;
-    }
-
-    .menu {
-        padding-left: 5px;
-        padding-right: 5px;
+        font-size: 0.7rem;
     }
 
     .cards {
-        width: calc(100% - 10px);
+        gap: 7px;
+        width: calc(100% - 8px);
     }
 
     .img-space {
-        height: 210px;
+        height: 125px;
     }
 
-    #personalizar,
-    #diabeticos {
-        padding-left: 5px;
-        padding-right: 5px;
-    }
-
-    #personalizar .personalizar-box,
-    #diabeticos .diabeticos {
-        padding: 18px 12px;
+    .card-content {
+        padding: 10px 6px;
     }
 
     .card-content h3 {
-        font-size: 1.35rem;
+        font-size: 0.85rem;
+    }
+
+    .card-content p {
+        font-size: 0.65rem;
     }
 
     .price {
-        font-size: 1.5rem;
+        font-size: 1rem;
     }
 
-}
-
-
-/* =========================================================
-   DISPOSITIVOS TÁCTILES
-   ========================================================= */
-
-@media (hover: none) {
-
-    .card:hover {
-        transform: none;
+    .btn-agregar,
+    .btn-agregar-personalizado {
+        font-size: 0.65rem;
+        min-height: 36px;
     }
-
-    .btn-agregar:hover,
-    .btn-agregar-personalizado:hover {
-        transform: none;
-    }
-
-    .redes-sociales a:hover {
-        transform: none;
-    }
-
-}
-
-
-/* =========================================================
-   PANTALLAS MUY GRANDES
-   ========================================================= */
-
-@media (min-width: 1600px) {
-
-    .cards {
-        max-width: 1400px;
-        gap: 35px;
-    }
-
-    .img-space {
-        height: 300px;
-    }
-
 }
